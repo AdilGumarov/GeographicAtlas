@@ -17,6 +17,9 @@
 		0A33097A2A113CF20011D707 /* CountryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3309792A113CF20011D707 /* CountryListModel.swift */; };
 		0A532D932A13F91C00F9DD41 /* CountryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A532D922A13F91C00F9DD41 /* CountryListViewModel.swift */; };
 		0A532D962A13FA4700F9DD41 /* CountriesListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A532D952A13FA4700F9DD41 /* CountriesListTableViewCell.swift */; };
+		0A532D992A13FD9700F9DD41 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0A532D982A13FD9700F9DD41 /* Kingfisher */; };
+		0A532D9B2A13FDF800F9DD41 /* CardTopContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A532D9A2A13FDF800F9DD41 /* CardTopContentView.swift */; };
+		0A532D9D2A13FE0C00F9DD41 /* CardExpandedContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A532D9C2A13FE0C00F9DD41 /* CardExpandedContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,8 @@
 		0A3309792A113CF20011D707 /* CountryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListModel.swift; sourceTree = "<group>"; };
 		0A532D922A13F91C00F9DD41 /* CountryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewModel.swift; sourceTree = "<group>"; };
 		0A532D952A13FA4700F9DD41 /* CountriesListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesListTableViewCell.swift; sourceTree = "<group>"; };
+		0A532D9A2A13FDF800F9DD41 /* CardTopContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTopContentView.swift; sourceTree = "<group>"; };
+		0A532D9C2A13FE0C00F9DD41 /* CardExpandedContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExpandedContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A532D992A13FD9700F9DD41 /* Kingfisher in Frameworks */,
 				0A3309772A112D670011D707 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,8 +74,9 @@
 				0A3309782A113CD50011D707 /* Model */,
 				0A532D912A13F90100F9DD41 /* ViewModel */,
 				0A33097B2A113F310011D707 /* Views */,
-				0A532D942A13FA1900F9DD41 /* TableViewCell */,
 				0A3309742A1129000011D707 /* SupportingFiles */,
+				0A532D9A2A13FDF800F9DD41 /* CardTopContentView.swift */,
+				0A532D9C2A13FE0C00F9DD41 /* CardExpandedContentView.swift */,
 			);
 			path = "Geagraphic Atlas";
 			sourceTree = "<group>";
@@ -106,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				0A3309632A1128590011D707 /* CountriesListViewController.swift */,
+				0A532D942A13FA1900F9DD41 /* TableViewCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -144,6 +152,7 @@
 			name = "Geagraphic Atlas";
 			packageProductDependencies = (
 				0A3309762A112D670011D707 /* SnapKit */,
+				0A532D982A13FD9700F9DD41 /* Kingfisher */,
 			);
 			productName = "Geagraphic Atlas";
 			productReference = 0A33095C2A1128590011D707 /* Geagraphic Atlas.app */;
@@ -175,6 +184,7 @@
 			mainGroup = 0A3309532A1128590011D707;
 			packageReferences = (
 				0A3309752A112D670011D707 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				0A532D972A13FD9700F9DD41 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 0A33095D2A1128590011D707 /* Products */;
 			projectDirPath = "";
@@ -204,7 +214,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A532D962A13FA4700F9DD41 /* CountriesListTableViewCell.swift in Sources */,
+				0A532D9D2A13FE0C00F9DD41 /* CardExpandedContentView.swift in Sources */,
 				0A3309642A1128590011D707 /* CountriesListViewController.swift in Sources */,
+				0A532D9B2A13FDF800F9DD41 /* CardTopContentView.swift in Sources */,
 				0A3309602A1128590011D707 /* AppDelegate.swift in Sources */,
 				0A33097A2A113CF20011D707 /* CountryListModel.swift in Sources */,
 				0A532D932A13F91C00F9DD41 /* CountryListViewModel.swift in Sources */,
@@ -438,6 +450,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		0A532D972A13FD9700F9DD41 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -445,6 +465,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0A3309752A112D670011D707 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		0A532D982A13FD9700F9DD41 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0A532D972A13FD9700F9DD41 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
