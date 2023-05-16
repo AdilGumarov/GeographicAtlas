@@ -12,6 +12,9 @@ struct CountryListModel: Codable {
     let name: Name
     let capital: [String]?
     let population: Int
+    let area: Double
+    let currencies: [String: Currency]?
+    let continents: [String]
     
     struct Flags: Codable {
         let png: String
@@ -20,4 +23,10 @@ struct CountryListModel: Codable {
     struct Name: Codable {
         let common: String
     }
+    
+    struct Currency: Codable {
+        let name: String
+        let symbol: String?
+    }
 }
+
