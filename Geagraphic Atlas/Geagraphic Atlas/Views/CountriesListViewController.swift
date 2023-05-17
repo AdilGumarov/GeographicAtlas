@@ -11,15 +11,7 @@ import SnapKit
 class CountriesListViewController: UIViewController {
     
     let tableView = UITableView()
-    
-    let list = ["Kazakhstan", "Japan", "South Korea", "Malaysia", "Kyrgyzstan", "China"]
-    
     let viewModel = CountryListViewModel()
-
-    var data = [CountryListModel]()
-    var continentsData: [String: [CountryListModel]] = [:]
-    var continentSections: [String] = []
-    var expandedCards: Set<String> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,26 +19,8 @@ class CountriesListViewController: UIViewController {
         view.backgroundColor = .white
         title = "World countries"
         
-        viewModel.fetchingData(URL: "https://restcountries.com/v3.1/all") { [self] data in
-            print(data)
-            self.data = data
-            self.data.forEach { country in
-                if let continent = country.continents.first {
-                    if var continentCountries = self.continentsData[continent] {
-                        continentCountries.append(country)
-                        continentsData[continent] = continentCountries
-                    } else {
-                        continentsData[continent] = [country]
-                    }
-                }
-                continentSections = continentsData.keys.sorted()
-                
-            }
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+        viewModel.delegate = self
+        viewModel.getDataFromApi()
 
         initialize()
     }
@@ -69,12 +43,11 @@ class CountriesListViewController: UIViewController {
 extension CountriesListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return continentSections.count
+        return viewModel.getNumberOfConinents()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let continent = continentSections[section]
-        return continentsData[continent]?.count ?? 0
+        return viewModel.getNumberOfRowInSection(section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -82,37 +55,40 @@ extension CountriesListViewController: UITableViewDataSource {
 
         cell.delegate = self
         
-        let continent = continentSections[indexPath.section]
-        if let countries = continentsData[continent] {
-            let country = countries[indexPath.row]
-            let imageUrl = URL(string: country.flags.png)!
-            let isExpanded = expandedCards.contains(country.name.common)
-            cell.setData(imageURL: imageUrl, country: country, isExpanded: isExpanded)
-        }
+        let country = viewModel.getCountry(from: indexPath)!
+        let imageUrl = viewModel.getUrlOfImage(from: indexPath)
+        let isExpanded = viewModel.isExpanded(country.name.common)
+        cell.setData(imageURL: imageUrl, country: country, isExpanded: isExpanded)
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let continent = continentSections[section]
-        return continent.uppercased()
+        return viewModel.getTitleOfSection(from: section)
     }
 }
 
 extension CountriesListViewController: CountriesListTableViewCellDelegate {
     func buttonTapped(_ cell: UITableViewCell) {
         if let indexPath = tableView.indexPath(for: cell) {
-            let continent = continentSections[indexPath.section]
-            if let countries = continentsData[continent] {
-                let country = countries[indexPath.row]
-                let countryName = country.name.common
-                if expandedCards.contains(countryName) {
-                    expandedCards.remove(countryName)
-                } else {
-                    expandedCards.insert(countryName)
-                }
-                tableView.reloadRows(at: [indexPath], with: .automatic)
+            let country = viewModel.getCountry(from: indexPath)!
+            let countryName = country.name.common
+            
+            if !viewModel.isExpanded(countryName) {
+                viewModel.insertCountry(by: countryName)
+            } else {
+                viewModel.removeCountry(by: countryName)
             }
+        
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
+    }
+}
+
+extension CountriesListViewController: CountryListViewModelDelegate {
+    func fetchingEnd() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
 }
