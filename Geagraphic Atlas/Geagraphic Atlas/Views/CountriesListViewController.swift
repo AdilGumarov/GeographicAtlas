@@ -17,7 +17,7 @@ class CountriesListViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        title = "World countries"
+        title = Constant.title
         
         viewModel.delegate = self
         viewModel.getDataFromApi()
@@ -27,7 +27,7 @@ class CountriesListViewController: UIViewController {
 
     func initialize() {
         
-        tableView.register(CountriesListTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(CountriesListTableViewCell.self, forCellReuseIdentifier: Constant.cellListIdentifier)
         
         tableView.dataSource = self
 
@@ -51,7 +51,7 @@ extension CountriesListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CountriesListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constant.cellListIdentifier, for: indexPath) as! CountriesListTableViewCell
 
         cell.delegate = self
         

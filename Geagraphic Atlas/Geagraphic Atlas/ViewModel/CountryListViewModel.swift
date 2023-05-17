@@ -92,7 +92,7 @@ class CountryListViewModel {
     }
     
     func getDataFromApi() {
-        let urlString = "https://restcountries.com/v3.1/all"
+        let urlString = Constant.urlStringApiAll
         fetchingData(URL: urlString) { [self] data in
             self.data = data
 //            print(data)

@@ -20,6 +20,7 @@
 		0A532D992A13FD9700F9DD41 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0A532D982A13FD9700F9DD41 /* Kingfisher */; };
 		0A532D9B2A13FDF800F9DD41 /* CardTopContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A532D9A2A13FDF800F9DD41 /* CardTopContentView.swift */; };
 		0A532D9D2A13FE0C00F9DD41 /* CardExpandedContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A532D9C2A13FE0C00F9DD41 /* CardExpandedContentView.swift */; };
+		0A532DA62A1495A400F9DD41 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A532DA52A1495A400F9DD41 /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		0A532D952A13FA4700F9DD41 /* CountriesListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesListTableViewCell.swift; sourceTree = "<group>"; };
 		0A532D9A2A13FDF800F9DD41 /* CardTopContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTopContentView.swift; sourceTree = "<group>"; };
 		0A532D9C2A13FE0C00F9DD41 /* CardExpandedContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExpandedContentView.swift; sourceTree = "<group>"; };
+		0A532DA52A1495A400F9DD41 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				0A3309742A1129000011D707 /* SupportingFiles */,
 				0A532D9A2A13FDF800F9DD41 /* CardTopContentView.swift */,
 				0A532D9C2A13FE0C00F9DD41 /* CardExpandedContentView.swift */,
+				0A532DA52A1495A400F9DD41 /* Constant.swift */,
 			);
 			path = "Geagraphic Atlas";
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 			files = (
 				0A532D962A13FA4700F9DD41 /* CountriesListTableViewCell.swift in Sources */,
 				0A532D9D2A13FE0C00F9DD41 /* CardExpandedContentView.swift in Sources */,
+				0A532DA62A1495A400F9DD41 /* Constant.swift in Sources */,
 				0A3309642A1128590011D707 /* CountriesListViewController.swift in Sources */,
 				0A532D9B2A13FDF800F9DD41 /* CardTopContentView.swift in Sources */,
 				0A3309602A1128590011D707 /* AppDelegate.swift in Sources */,
