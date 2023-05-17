@@ -11,9 +11,12 @@ import SnapKit
 
 protocol CountriesListTableViewCellDelegate: AnyObject {
     func buttonTapped(_ cell: UITableViewCell)
+    func learnMoreButtonTapped(_ cell: UITableViewCell)
 }
 
-class CountriesListTableViewCell: UITableViewCell, CardTopContentViewDelegate {
+class CountriesListTableViewCell: UITableViewCell {
+    
+    weak var delegate: CountriesListTableViewCellDelegate?
     
     var cardView: UIView = {
         let view = UIView()
@@ -36,6 +39,7 @@ class CountriesListTableViewCell: UITableViewCell, CardTopContentViewDelegate {
         selectionStyle = .none
         
         contentCardView.delegate = self
+        expandedContentCardView.delegate = self
         
         initialize()
     }
@@ -93,10 +97,16 @@ class CountriesListTableViewCell: UITableViewCell, CardTopContentViewDelegate {
             stackView.addArrangedSubview(expandedContentCardView)
         }
     }
-    
-    weak var delegate: CountriesListTableViewCellDelegate?
-    
+}
+
+extension CountriesListTableViewCell: CardTopContentViewDelegate {
     func didTapButton() {
         delegate?.buttonTapped(self)
+    }
+}
+
+extension CountriesListTableViewCell: CardExpandedContentViewDelegate {
+    func learnMoreButtonTapped() {
+        delegate?.learnMoreButtonTapped(self)
     }
 }

@@ -8,7 +8,13 @@
 import Foundation
 import UIKit
 
+protocol CardExpandedContentViewDelegate: AnyObject {
+    func learnMoreButtonTapped()
+}
+
 class CardExpandedContentView: UIView {
+
+    weak var delegate: CardExpandedContentViewDelegate?
     
     let stackView: UIStackView = {
         let sv = UIStackView()
@@ -71,7 +77,7 @@ class CardExpandedContentView: UIView {
     }
     
     @objc func learnMoreButtonTapped() {
-        
+        delegate?.learnMoreButtonTapped()
     }
     
     func initialize() {
