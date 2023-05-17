@@ -73,6 +73,29 @@ class CountryListViewModel {
         expandedCards.remove(countryName)
     }
     
+    func getCurrency(from indexPath: IndexPath) -> String {
+        
+        let country = getCountry(from: indexPath)!
+        var currency = ""
+        if let dict = country.currencies {
+            var counter = dict.count
+           
+            for (key, value) in dict {
+                if counter > 1 {
+                    currency.append(String(format: "%@ (%@) (%@)", value.name, value.symbol ?? "", key))
+                    currency.append("\n")
+                    counter -= 1
+                } else if counter == 1 {
+                    currency.append(String(format: "%@ (%@) (%@)", value.name, value.symbol ?? "", key))
+                } else {
+                    currency = ""
+                }
+            }
+        }
+        
+        return currency
+    }
+    
     func fetchingData(URL url: String, completion: @escaping ([CountryListModel]) -> Void) {
         if let url = URL(string: url) {
             let session = URLSession(configuration: .default)

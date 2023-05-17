@@ -83,7 +83,7 @@ class CountriesListTableViewCell: UITableViewCell {
         
     }
     
-    func setData(imageURL: URL, country: CountryListModel, isExpanded: Bool) {
+    func setData(imageURL: URL, country: CountryListModel, currency: String, isExpanded: Bool) {
         contentCardView.flagImage.kf.setImage(with: imageURL)
         contentCardView.countryLabel.text = country.name.common
         contentCardView.capitalLabel.text = country.capital?[0] ?? ""
@@ -91,11 +91,28 @@ class CountriesListTableViewCell: UITableViewCell {
         
         if isExpanded {
             contentCardView.expandStateButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
-            expandedContentCardView.populationLabel.text = "Population: \(country.population)"
-            expandedContentCardView.areaLabel.text = "Area: \(country.area)"
-            expandedContentCardView.currenciesLabel.text = "Currencies: \(country.currencies?.keys)"
+            expandedContentCardView.populationLabel.attributedText = getAttributedText(leftText: "Population: ", rightText: String(country.population))
+            expandedContentCardView.areaLabel.attributedText = getAttributedText(leftText: "Area: ", rightText: "\(country.area) mln km2")
+            expandedContentCardView.currenciesLabel.attributedText = getAttributedText(leftText: "Currencies: ", rightText: String(currency))
             stackView.addArrangedSubview(expandedContentCardView)
         }
+    }
+    
+    private func getAttributedText(leftText: String, rightText: String) -> NSAttributedString {
+        var result = NSMutableAttributedString(string: "")
+        let leftAttributedString = NSAttributedString(string: leftText, attributes: [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .regular),
+            NSAttributedString.Key.foregroundColor: UIColor.systemGray
+        ])
+        result.append(leftAttributedString)
+        
+        let rightAttributedString = NSAttributedString(string: rightText, attributes: [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15, weight: .regular),
+            NSAttributedString.Key.foregroundColor: UIColor.black
+        ])
+        result.append(rightAttributedString)
+        
+        return result
     }
 }
 

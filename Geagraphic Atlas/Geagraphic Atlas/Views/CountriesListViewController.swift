@@ -58,7 +58,8 @@ extension CountriesListViewController: UITableViewDataSource {
         let country = viewModel.getCountry(from: indexPath)!
         let imageUrl = viewModel.getUrlOfImage(from: indexPath)
         let isExpanded = viewModel.isExpanded(country.name.common)
-        cell.setData(imageURL: imageUrl, country: country, isExpanded: isExpanded)
+        let currency = viewModel.getCurrency(from: indexPath)
+        cell.setData(imageURL: imageUrl, country: country, currency: currency, isExpanded: isExpanded)
 
         return cell
     }

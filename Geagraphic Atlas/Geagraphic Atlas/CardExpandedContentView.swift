@@ -61,7 +61,7 @@ class CardExpandedContentView: UIView {
         button.backgroundColor = .clear
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
         button.setTitle("Learn more", for: .normal)
-        button.setTitleColor(.blue, for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
         button.addTarget(self, action: #selector(learnMoreButtonTapped), for: .touchUpInside)
         return button
     }()
