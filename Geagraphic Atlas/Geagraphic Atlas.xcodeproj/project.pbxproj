@@ -87,9 +87,6 @@
 				0A532D912A13F90100F9DD41 /* ViewModel */,
 				0A33097B2A113F310011D707 /* Views */,
 				0A3309742A1129000011D707 /* SupportingFiles */,
-				0A532D9A2A13FDF800F9DD41 /* CardTopContentView.swift */,
-				0A532D9C2A13FE0C00F9DD41 /* CardExpandedContentView.swift */,
-				0A532DB42A14D91F00F9DD41 /* HeaderView.swift */,
 				0A532DA52A1495A400F9DD41 /* Constant.swift */,
 			);
 			path = "Geagraphic Atlas";
@@ -130,6 +127,7 @@
 				0A3309632A1128590011D707 /* CountriesListViewController.swift */,
 				0A532DA92A1498E900F9DD41 /* CountryDetailViewController.swift */,
 				0A532D942A13FA1900F9DD41 /* TableViewCell */,
+				0A532DB62A14F33D00F9DD41 /* additional views */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -150,6 +148,16 @@
 				0A532DAF2A14C93D00F9DD41 /* CountryDetailTableViewCell.swift */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		0A532DB62A14F33D00F9DD41 /* additional views */ = {
+			isa = PBXGroup;
+			children = (
+				0A532D9A2A13FDF800F9DD41 /* CardTopContentView.swift */,
+				0A532D9C2A13FE0C00F9DD41 /* CardExpandedContentView.swift */,
+				0A532DB42A14D91F00F9DD41 /* HeaderView.swift */,
+			);
+			path = "additional views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
