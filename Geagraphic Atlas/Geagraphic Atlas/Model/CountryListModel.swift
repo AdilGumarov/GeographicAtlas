@@ -15,6 +15,7 @@ struct CountryListModel: Codable {
     let area: Double
     let currencies: [String: Currency]?
     let continents: [String]
+    let cca2: String
     
     struct Flags: Codable {
         let png: String

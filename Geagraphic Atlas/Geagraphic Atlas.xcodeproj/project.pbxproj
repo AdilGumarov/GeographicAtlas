@@ -21,6 +21,8 @@
 		0A532D9B2A13FDF800F9DD41 /* CardTopContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A532D9A2A13FDF800F9DD41 /* CardTopContentView.swift */; };
 		0A532D9D2A13FE0C00F9DD41 /* CardExpandedContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A532D9C2A13FE0C00F9DD41 /* CardExpandedContentView.swift */; };
 		0A532DA62A1495A400F9DD41 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A532DA52A1495A400F9DD41 /* Constant.swift */; };
+		0A532DA82A14988600F9DD41 /* CountryDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A532DA72A14988600F9DD41 /* CountryDetailModel.swift */; };
+		0A532DAA2A1498E900F9DD41 /* CountryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A532DA92A1498E900F9DD41 /* CountryDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		0A532D9A2A13FDF800F9DD41 /* CardTopContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTopContentView.swift; sourceTree = "<group>"; };
 		0A532D9C2A13FE0C00F9DD41 /* CardExpandedContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardExpandedContentView.swift; sourceTree = "<group>"; };
 		0A532DA52A1495A400F9DD41 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		0A532DA72A14988600F9DD41 /* CountryDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailModel.swift; sourceTree = "<group>"; };
+		0A532DA92A1498E900F9DD41 /* CountryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				0A3309792A113CF20011D707 /* CountryListModel.swift */,
+				0A532DA72A14988600F9DD41 /* CountryDetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				0A3309632A1128590011D707 /* CountriesListViewController.swift */,
+				0A532DA92A1498E900F9DD41 /* CountryDetailViewController.swift */,
 				0A532D942A13FA1900F9DD41 /* TableViewCell */,
 			);
 			path = Views;
@@ -219,10 +225,12 @@
 				0A532D962A13FA4700F9DD41 /* CountriesListTableViewCell.swift in Sources */,
 				0A532D9D2A13FE0C00F9DD41 /* CardExpandedContentView.swift in Sources */,
 				0A532DA62A1495A400F9DD41 /* Constant.swift in Sources */,
+				0A532DAA2A1498E900F9DD41 /* CountryDetailViewController.swift in Sources */,
 				0A3309642A1128590011D707 /* CountriesListViewController.swift in Sources */,
 				0A532D9B2A13FDF800F9DD41 /* CardTopContentView.swift in Sources */,
 				0A3309602A1128590011D707 /* AppDelegate.swift in Sources */,
 				0A33097A2A113CF20011D707 /* CountryListModel.swift in Sources */,
+				0A532DA82A14988600F9DD41 /* CountryDetailModel.swift in Sources */,
 				0A532D932A13F91C00F9DD41 /* CountryListViewModel.swift in Sources */,
 				0A3309622A1128590011D707 /* SceneDelegate.swift in Sources */,
 			);

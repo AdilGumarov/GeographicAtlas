@@ -70,7 +70,13 @@ extension CountriesListViewController: UITableViewDataSource {
 
 extension CountriesListViewController: CountriesListTableViewCellDelegate {
     func learnMoreButtonTapped(_ cell: UITableViewCell) {
-        print("Hello")
+        if let indexPath = tableView.indexPath(for: cell) {
+            let country = viewModel.getCountry(from: indexPath)!
+            let detailVC = CountryDetailViewController(country.cca2)
+            
+            detailVC.title = country.name.common
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
     }
     
     func buttonTapped(_ cell: UITableViewCell) {
