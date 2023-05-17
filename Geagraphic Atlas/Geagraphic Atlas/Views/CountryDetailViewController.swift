@@ -15,14 +15,7 @@ class CountryDetailViewController: UIViewController {
     
     var cca2Code: String = ""
     
-    lazy var flagImageView: UIImageView = {
-        let image = UIImageView()
-        image.kf.setImage(with: URL(string: viewModel.getURLImage()))
-        image.contentMode = .scaleToFill
-        image.layer.cornerRadius = 8.0
-        image.clipsToBounds = true
-        return image
-    }()
+    let headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 200))
     
     init(_ code: String) {
         super.init(nibName: nil, bundle: nil)
@@ -45,23 +38,26 @@ class CountryDetailViewController: UIViewController {
     
     func initialize() {
         
-        view.addSubview(self.flagImageView)
-        flagImageView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(16)
-            make.left.right.equalToSuperview().inset(16)
-            make.height.equalTo(200)
-        }
+//        view.addSubview(self.flagImageView)
+//        flagImageView.snp.makeConstraints { make in
+//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).inset(16)
+//            make.left.right.equalToSuperview().inset(16)
+//            make.height.equalTo(200)
+//        }
         
         tableView.register(CountryDetailTableViewCell.self, forCellReuseIdentifier: Constant.cellDetailIdentifier)
         
         tableView.dataSource = self
         
+        headerView.setImageURL(url: viewModel.getURLImage())
+        
         tableView.separatorStyle = .none
+        tableView.tableHeaderView = headerView
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(flagImageView.snp.bottom).offset(12)
-            make.left.right.bottom.equalToSuperview()
+//            make.equalTo(flagImageView.snp.bottom).offset(12)
+            make.top.left.right.bottom.equalToSuperview()
         }
     }
 }
@@ -74,16 +70,14 @@ extension CountryDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constant.cellDetailIdentifier, for: indexPath) as! CountryDetailTableViewCell
         
-        let section = viewModel.getSection(index: indexPath.row)
-        let value = viewModel.prepareData()
+        let section = viewModel.getSection(index:  indexPath.row)
+        let value = viewModel.getValue(index: indexPath.row)
+//        let value = viewModel.prepareData()
         
-        cell.setData(section: section, name: value[indexPath.row])
+        cell.setData(section: section, name: value)
         
         return cell
     }
-    
-    
-    
 }
 
 extension CountryDetailViewController: CountryDetailViewModelDelegate {

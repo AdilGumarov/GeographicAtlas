@@ -18,6 +18,7 @@ class CountryDetailViewModel {
     
     var data: CountryDetailModel?
     let sections = ["Region:", "Capital:", "Capital coordinates:", "Population:", "Area:", "Currency", "Timezones"]
+    var value = [String]()
     
     
     func getURLImage() -> String {
@@ -40,29 +41,40 @@ class CountryDetailViewModel {
         return sections.count
     }
     
-    func prepareData() -> [String]  {
-        
-        var value = [String]()
+    func prepareData() {
         
         var capital = ""
         if let temp = data?.capital {
-            for i in temp {
-                capital.append(i)
-                capital.append("\n")
+            if temp.count > 1 {
+                for i in temp {
+                    capital.append(i)
+                    capital.append("\n")
+                }
+            } else {
+                capital.append(temp[0])
             }
         }
         
         var capitalCoordinates = ""
-        if let temp = data?.capitalInfo.latlng {
+        if let temp = data?.capitalInfo?.latlng {
             capitalCoordinates = "\(temp[0]), \(temp[1])"
         }
         
-        var currency = "Euro"
-        if let temp = data?.currencies {
-            for i in temp {
-                let a = i
+        var currency = ""
+        if let dict = data?.currencies {
+            var counter = dict.count
+           
+            for (key, value) in dict {
+                if counter > 1 {
+                    currency.append(String(format: "%@ (%@) (%@)", value.name, value.symbol, key))
+                    currency.append("\n")
+                    counter -= 1
+                } else {
+                    currency.append(String(format: "%@ (%@) (%@)", value.name, value.symbol, key))
+                }
             }
         }
+
         
         var timezone = ""
         if let temp = data?.timezones {
@@ -82,7 +94,10 @@ class CountryDetailViewModel {
         
         print(value)
         
-        return value
+    }
+    
+    func getValue(index: Int) -> String {
+        return value[index]
     }
     
     func fetchingData(URL url: String, completion: @escaping ([CountryDetailModel]) -> Void) {
@@ -108,6 +123,7 @@ class CountryDetailViewModel {
         fetchingData(URL: URLString) { [weak self] data in
             self?.data = data[0]
             self?.delegate?.fetchingEnd()
+            self?.prepareData()
         }
     }
     

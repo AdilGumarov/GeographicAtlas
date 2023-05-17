@@ -9,10 +9,10 @@ import Foundation
 
 struct CountryDetailModel: Codable {
     let flags: Flags
-    let subregion: String
+    let subregion: String?
     let name: Name
     let capital: [String]?
-    let capitalInfo: CapitalInfo
+    let capitalInfo: CapitalInfo?
     let population: Int
     let area: Int
     let currencies: [String: Currency]?
@@ -20,8 +20,8 @@ struct CountryDetailModel: Codable {
 }
 
 struct Currency: Codable {
-       let name: String
-       let symbol: String
+   let name: String
+   let symbol: String
 }
 
 struct Flags: Codable {
@@ -33,5 +33,5 @@ struct Name: Codable {
 }
 
 struct CapitalInfo: Codable {
-    let latlng: [Double]
+    let latlng: [Double]?
 }

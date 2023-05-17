@@ -25,6 +25,7 @@
 		0A532DAA2A1498E900F9DD41 /* CountryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A532DA92A1498E900F9DD41 /* CountryDetailViewController.swift */; };
 		0A532DAE2A14C8CF00F9DD41 /* CountryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A532DAD2A14C8CF00F9DD41 /* CountryDetailViewModel.swift */; };
 		0A532DB02A14C93D00F9DD41 /* CountryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A532DAF2A14C93D00F9DD41 /* CountryDetailTableViewCell.swift */; };
+		0A532DB52A14D91F00F9DD41 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A532DB42A14D91F00F9DD41 /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		0A532DA92A1498E900F9DD41 /* CountryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailViewController.swift; sourceTree = "<group>"; };
 		0A532DAD2A14C8CF00F9DD41 /* CountryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailViewModel.swift; sourceTree = "<group>"; };
 		0A532DAF2A14C93D00F9DD41 /* CountryDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailTableViewCell.swift; sourceTree = "<group>"; };
+		0A532DB42A14D91F00F9DD41 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				0A3309742A1129000011D707 /* SupportingFiles */,
 				0A532D9A2A13FDF800F9DD41 /* CardTopContentView.swift */,
 				0A532D9C2A13FE0C00F9DD41 /* CardExpandedContentView.swift */,
+				0A532DB42A14D91F00F9DD41 /* HeaderView.swift */,
 				0A532DA52A1495A400F9DD41 /* Constant.swift */,
 			);
 			path = "Geagraphic Atlas";
@@ -241,6 +244,7 @@
 				0A532DA82A14988600F9DD41 /* CountryDetailModel.swift in Sources */,
 				0A532D932A13F91C00F9DD41 /* CountryListViewModel.swift in Sources */,
 				0A3309622A1128590011D707 /* SceneDelegate.swift in Sources */,
+				0A532DB52A14D91F00F9DD41 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
